@@ -15,7 +15,7 @@ namespace cloudbox_server
        private static string server = "127.0.0.1";
        private static string database = "test";
        private static string uid = "root";
-       private static string password = "aurora00";
+       private static string password = "********"; //choose your own
        private static string myConnectionString = "SERVER=" + server + ";" + "DATABASE=" +
         database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";" + " Convert Zero Datetime=True;";
 
@@ -193,8 +193,7 @@ namespace cloudbox_server
 
         }
 
-        //Inserisco il nuovo file nella tab utente e aggiorno la currentconf
-        //Da gestire il max numero di versioni per lo stesso file
+        //Insert a new fle in table utente and update currentconf
         public static void UpdateFile(string username,string hash, string fileName, string clientPath, long size, DateTime LastAcces, DateTime LastUpd)
         {
             MySqlConnection conn;
@@ -353,7 +352,6 @@ namespace cloudbox_server
         }
 
 
-        //bisogna creare anche la tabella "currentconf" e "history" del nuovo utente 
         internal static bool InsertUser(string usr, string pswSalted,string salt)
         {
             MySqlConnection conn;
